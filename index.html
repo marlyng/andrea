@@ -1,0 +1,1343 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AB - Elegancia Natural</title>
+    <meta name="description" content="AB - Servicios de calidad con elegancia natural. Contacta con Andrea Bautista para más información.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            line-height: 1.7;
+            color: #2c2c2c;
+            background: #faf8f5;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Floating Elements */
+        .floating-shapes {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .shape {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.05;
+            animation: float 20s infinite ease-in-out;
+        }
+
+        .shape:nth-child(1) {
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, #ff0040, transparent);
+            top: 10%;
+            left: -100px;
+            animation-delay: 0s;
+        }
+
+        .shape:nth-child(2) {
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, #6b46c1, transparent);
+            top: 60%;
+            right: -100px;
+            animation-delay: 7s;
+        }
+
+        .shape:nth-child(3) {
+            width: 150px;
+            height: 150px;
+            background: radial-gradient(circle, #2563eb, transparent);
+            top: 30%;
+            right: 20%;
+            animation-delay: 14s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            25% { transform: translateY(-30px) rotate(90deg); }
+            50% { transform: translateY(-60px) rotate(180deg); }
+            75% { transform: translateY(-30px) rotate(270deg); }
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(250, 248, 245, 0.95);
+            backdrop-filter: blur(20px);
+            z-index: 1000;
+            padding: 1.5rem 0;
+            border-bottom: 1px solid rgba(107, 70, 193, 0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: flex;
+            align-items: center;
+            font-size: 0.1rem;
+            font-weight: bold;
+            color: #2c2c2c;
+            flex: 2;
+        }
+
+        .logo img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            transition: transform 0.3s ease;
+        }
+
+        .logo::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, #f10505 0%, #7506be 50%, #2563eb 100%);
+            border-radius: 2px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 3rem;
+        }
+
+        .nav-links a {
+            color: #2c2c2c;
+            text-decoration: none;
+            font-weight: 500;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a::before {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background:  #7506be;
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+
+        .nav-links a:hover::before {
+            width: 100%;
+        }
+
+        .nav-links a:hover {
+            color: #7506be;
+        }
+
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: #2c2c2c;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(255, 0, 64, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(107, 70, 193, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(37, 99, 235, 0.05) 0%, transparent 50%),
+                linear-gradient(135deg, #faf8f5 0%, #f5f3f0 100%);
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            width: 100%;
+        }
+
+        .hero-text h1 {
+            font-size: 4.5rem;
+            font-weight: 300;
+            margin-bottom: 1.5rem;
+            color: #2c2c2c;
+            line-height: 1.1;
+        }
+
+        .hero-text .highlight {
+            background: linear-gradient(135deg, #f10505,  #7506be, #2563eb);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 600;
+        }
+
+        .hero-text p {
+            font-size: 1.4rem;
+            margin-bottom: 2.5rem;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .hero-visual {
+            position: relative;
+            height: 500px;
+        }
+
+        .visual-element {
+            position: absolute;
+            border-radius: 30px;
+            backdrop-filter: blur(10px);
+        }
+
+        .visual-element:nth-child(1) {
+            width: 60%;
+            height: 70%;
+            background: linear-gradient(135deg, rgba(255, 0, 64, 0.15), rgba(255, 0, 64, 0.05));
+            border: 1px solid rgba(255, 0, 64, 0.2);
+            top: 10%;
+            left: 0;
+            animation: float 15s infinite ease-in-out;
+        }
+
+        .visual-element:nth-child(2) {
+            width: 50%;
+            height: 60%;
+            background: linear-gradient(135deg, rgba(107, 70, 193, 0.15), rgba(107, 70, 193, 0.05));
+            border: 1px solid rgba(107, 70, 193, 0.2);
+            top: 30%;
+            right: 10%;
+            animation: float 18s infinite ease-in-out reverse;
+        }
+
+        .visual-element:nth-child(3) {
+            width: 30%;
+            height: 40%;
+            background: linear-gradient(135deg, rgba(37, 99, 235, 0.15), rgba(37, 99, 235, 0.05));
+            border: 1px solid rgba(37, 99, 235, 0.2);
+            bottom: 10%;
+            left: 30%;
+            animation: float 12s infinite ease-in-out;
+            animation-delay: 3s;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .cta-button {
+            padding: 1.2rem 2.5rem;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-primary {
+            background: linear-gradient(135deg, #f10505, #7506be);
+            color: white;
+        }
+
+        .cta-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.6s;
+        }
+
+        .cta-primary:hover::before {
+            left: 100%;
+        }
+
+        .cta-secondary {
+            background: transparent;
+            color: #7506be;
+            border: 2px solid #7506be;
+        }
+
+        .cta-secondary:hover {
+            background: #7506be;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        /* Sections */
+        section {
+            padding: 6rem 0;
+            position: relative;
+        }
+
+        .section-title {
+            font-size: 3rem;
+            font-weight: 300;
+            text-align: center;
+            margin-bottom: 4rem;
+            color: #2c2c2c;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, #f10505, #7506be, #2563eb);
+            border-radius: 2px;
+        }
+
+        /* About Section */
+        .about {
+            background: 
+                radial-gradient(circle at 90% 10%, rgba(37, 99, 235, 0.08) 0%, transparent 50%),
+                linear-gradient(135deg, #f8f6f3 0%, #faf8f5 100%);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            align-items: start;
+        }
+
+        .about-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            padding: 3rem;
+            border-radius: 30px;
+            border: 1px solid rgba(107, 70, 193, 0.1);
+            margin-bottom: 2rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .about-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(107, 70, 193, 0.1);
+        }
+
+        .about-card h3 {
+            color: #f10505;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .profile-section {
+            text-align: center;
+        }
+
+        .profile-visual {
+            width: 200px;
+            height: 200px;
+            margin: 0 auto 2rem;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #f10505, #7506be, #2563eb);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
+            position: relative;
+        }
+
+        .profile-visual::before {
+            content: '';
+            position: absolute;
+            inset: 5px;
+            border-radius: 50%;
+            background: #faf8f5;
+            z-index: -1;
+        }
+
+        /* Catalog Section */
+        .catalog {
+            background: 
+                radial-gradient(circle at 10% 90%, rgba(255, 0, 64, 0.08) 0%, transparent 50%),
+                linear-gradient(135deg, #faf8f5 0%, #f5f3f0 100%);
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 3rem;
+        }
+
+        .product-card {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 25px;
+            padding: 0;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid rgba(107, 70, 193, 0.1);
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px) rotate(1deg);
+            box-shadow: 0 25px 50px rgba(107, 70, 193, 0.15);
+        }
+
+        .product-image {
+            height: 250px;
+            background: linear-gradient(135deg, #f10505, #7506be, #2563eb);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-image::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80%;
+            height: 80%;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+        }
+
+        .product-image::after {
+            content: 'Imagen del Producto';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-weight: 600;
+            z-index: 2;
+        }
+
+        .product-info {
+            padding: 2rem;
+        }
+
+        .product-info h3 {
+            color: #2c2c2c;
+            margin-bottom: 1rem;
+            font-size: 1.4rem;
+        }
+
+        /* Services Section */
+        .services {
+            background: 
+                radial-gradient(circle at 50% 50%, rgba(107, 70, 193, 0.08) 0%, transparent 50%),
+                linear-gradient(135deg, #f8f6f3 0%, #faf8f5 100%);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .service-card {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 3rem 2rem;
+            border-radius: 25px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(37, 99, 235, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, #f10505, #7506be, #2563eb);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .service-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(37, 99, 235, 0.15);
+        }
+
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 1.5rem;
+            border-radius: 50%;
+            background: linear-gradient(135deg, rgba(255, 0, 64, 0.1), rgba(107, 70, 193, 0.1));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            border: 2px solid rgba(107, 70, 193, 0.2);
+        }
+
+        /* Location Section */
+        .location {
+            background: 
+                radial-gradient(circle at 80% 20%, rgba(255, 0, 64, 0.08) 0%, transparent 50%),
+                linear-gradient(135deg, #faf8f5 0%, #f8f6f3 100%);
+        }
+
+        .map-container {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 4rem;
+            border-radius: 30px;
+            text-align: center;
+            border: 1px solid rgba(107, 70, 193, 0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        .location-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .location-item {
+            padding: 1.5rem;
+            background: rgba(107, 70, 193, 0.05);
+            border-radius: 15px;
+            border-left: 4px solid  #7506be;
+        }
+
+        /* Testimonials Section */
+        .testimonials {
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(37, 99, 235, 0.08) 0%, transparent 50%),
+                linear-gradient(135deg, #f8f6f3 0%, #faf8f5 100%);
+        }
+
+        .testimonials-container {
+            overflow: hidden;
+            position: relative;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 3rem;
+        }
+
+        .testimonial-card {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 3rem;
+            border-radius: 25px;
+            position: relative;
+            border: 1px solid rgba(255, 0, 64, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .testimonial-card::before {
+            content: '"';
+            position: absolute;
+            top: -10px;
+            left: 20px;
+            font-size: 4rem;
+            color: #f10505;
+            opacity: 0.3;
+        }
+
+        .testimonial-card:hover {
+            transform: scale(1.03);
+        }
+
+        .testimonial-rating {
+            color: #f10505;
+            margin-bottom: 1.5rem;
+            font-size: 1.2rem;
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 1.5rem;
+            color: #555;
+        }
+
+        .testimonial-author {
+            font-weight: 600;
+            color: #7506be;
+        }
+
+        /* Contact Section */
+        .contact {
+            background: 
+                radial-gradient(circle at 60% 40%, rgba(107, 70, 193, 0.08) 0%, transparent 50%),
+                linear-gradient(135deg, #faf8f5 0%, #f5f3f0 100%);
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            align-items: start;
+        }
+
+        .contact-form {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 3rem;
+            border-radius: 30px;
+            border: 1px solid rgba(37, 99, 235, 0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        .form-group {
+            margin-bottom: 2rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.8rem;
+            color: #2c2c2c;
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 1.2rem 1.5rem;
+            background: rgba(255, 255, 255, 0.8);
+            border: 2px solid rgba(107, 70, 193, 0.1);
+            border-radius: 15px;
+            color: #2c2c2c;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color:  #7506be;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 1.2rem;
+            background: linear-gradient(135deg, #f10505,  #7506be);
+            color: white;
+            border: none;
+            border-radius: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 0, 64, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .contact-item:hover {
+            transform: translateX(10px);
+        }
+
+        .contact-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: white;
+        }
+
+        .contact-item:nth-child(1) .contact-icon { background: linear-gradient(135deg, #ff0040, #6b46c1); }
+        .contact-item:nth-child(2) .contact-icon { background: linear-gradient(135deg, #6b46c1, #2563eb); }
+        .contact-item:nth-child(3) .contact-icon { background: linear-gradient(135deg, #2563eb, #ff0040); }
+
+        /* Footer */
+        footer {
+            background: 
+                linear-gradient(135deg, #2c2c2c 0%, #1a1a1a 100%);
+            padding: 4rem 0 2rem;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, #f10505, #7506be, #2563eb);
+        }
+
+        .footer-content {
+            text-align: center;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .social-links a {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 1.5rem;
+        }
+
+        .social-links a:nth-child(1) { background: linear-gradient(135deg, #f10505, #7506be); }
+        .social-links a:nth-child(2) { background: linear-gradient(135deg, #7506be, #2563eb); }
+        .social-links a:nth-child(3) { background: linear-gradient(135deg, #2563eb, #f10505); }
+
+        .social-links a:hover {
+            transform: translateY(-5px) scale(1.1);
+        }
+
+        /* WhatsApp Floating Button */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, #25d366, #128c7e);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            box-shadow: 0 10px 30px rgba(37, 211, 102, 0.3);
+            transition: all 0.3s ease;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+            70% { box-shadow: 0 0 0 20px rgba(37, 211, 102, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            animation: none;
+        }
+
+        .whatsapp-float a {
+            color: white;
+            text-decoration: none;
+            font-size: 2rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: rgba(250, 248, 245, 0.98);
+                flex-direction: column;
+                padding: 2rem;
+                gap: 1rem;
+                border-radius: 0 0 20px 20px;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-text h1 {
+                font-size: 3rem;
+            }
+
+            .hero-visual {
+                height: 300px;
+                margin-top: 2rem;
+            }
+
+            .about-content,
+            .contact-content {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .section-title {
+                font-size: 2.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+            
+            .product-grid,
+            .services-grid,
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            section {
+                padding: 4rem 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Floating Background Elements -->
+    <div class="floating-shapes">
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <nav class="container">
+            <div class="logo">
+                <img src="img/logo1.png" alt="Stylized logo with overlapping red and black circular arrows forming the letters O and A, followed by the letters AB in large black and red font. The text reads OAB. The design conveys a modern, creative, and energetic tone." style="width:120px; height:120px;" />
+            </div>
+            <ul class="nav-links">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#nosotros">Nosotros</a></li>
+                <li><a href="#catalogo">Catálogo</a></li>
+                <li><a href="#servicios">Servicios</a></li>
+                <li><a href="#ubicacion">Ubicación</a></li>
+                <li><a href="#testimonios">Testimonios</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+            <button class="menu-toggle">☰</button>
+        </nav>
+    </header>
+    <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
+    <!-- Hero Section -->
+    <section id="inicio" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>Bienestar y <span class="highlight">Belleza</span> en equilibrio <span class="highlight">fisioterapia y estética</span></h1>
+                    <div class="cta-buttons">
+                        <a href="https://wa.me/573203528522" class="cta-button cta-primary" target="_blank">Conectar por WhatsApp</a>
+                        <a href="#catalogo" class="cta-button cta-secondary">Explorar Catálogo</a>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <div class="visual-element"></div>
+                    <div class="visual-element"></div>
+                    <div class="visual-element"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="nosotros" class="about">
+        <div class="container">
+            <h2 class="section-title">Nuestra Esencia</h2>
+            <div class="about-content">
+                <div class="about-info">
+                    <div class="about-card">
+                        <h3>🌟 Nuestra Historia</h3>
+                        <p>AB nace de la pasión por crear experiencias auténticas que reflejan la personalidad única de cada cliente. Creemos en la belleza que surge cuando la elegancia se encuentra con la naturalidad.</p>
+                    </div>
+                    
+                    <div class="about-card">
+                        <h3>🎯 Nuestra Misión</h3>
+                        <p>Transformar momentos ordinarios en experiencias extraordinarias, ofreciendo servicios que no solo cumplen expectativas, sino que las superan con un toque personal y auténtico.</p>
+                    </div>
+                    
+                    <div class="about-card">
+                        <h3>✨ Nuestra Visión</h3>
+                        <p>Ser reconocidos como pioneros en la creación de experiencias que fusionan lo contemporáneo con lo atemporal, estableciendo nuevos estándares en elegancia natural.</p>
+                    </div>
+                    
+                    <div class="about-card">
+                        <h3>💎 Nuestros Valores</h3>
+                        <p>Autenticidad, excelencia, innovación creativa y un compromiso inquebrantable con la satisfacción genuina de nuestros clientes.</p>
+                    </div>
+                </div>
+                <div class="profile-section">
+                    <div class="profile-visual">
+                        <img src="img/andrea.jpeg" alt="Two women in a clinical setting, one wearing a purple uniform sitting on an examination table and the other in a white medical coat using a blood pressure cuff on her arm. The environment is clean and professional with medical equipment and supplies visible on a side table. The atmosphere is calm and caring, suggesting a routine health check or consultation." style="width:120px; height:120px;" />
+                    </div>
+                    <h3 style="color: #7506be; margin-bottom: 1rem;">Andrea Bautista</h3>
+                    <p style="color: #ff0040; font-weight: 600; margin-bottom: 1rem;">Fundadora & Visionaria Creativa</p>
+                    <p>Con una perspectiva única que combina experiencia profesional y sensibilidad artística, Andrea lidera AB con la convicción de que cada proyecto es una oportunidad para crear algo verdaderamente especial.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Catalog Section -->
+    <section id="catalogo" class="catalog">
+        <div class="container">
+            <h2 class="section-title">Colección Exclusiva</h2>
+            <div class="product-grid">
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="img/fisioterapia.jpg" alt="Fisioterapia de Habilitación">
+                    </div>
+                    <div class="product-info">
+                        <h3>fisioterapia de habilitacion.</h3>
+                        <p>Recupera tu movilidad y fuerza con terapias personalizadas que ayudan a restaurar la función física después de lesiones o condiciones de salud.</p>
+                    </div>
+                </div>
+                 <div class="product-card">
+                    <div class="product-image">
+                        <img src="img/fisioterapia.jpg" alt="Sueroterapia">
+                    </div>
+                    <div class="product-info">
+                        <h3>Sueroterapia</h3>
+                        <p>Terapia revitalizante que aporta vitaminas y minerales directamente al organismo, mejorando energía, defensas y bienestar general.</p>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="img/fisioterapia.jpg" alt="Pos operatorio">
+                    </div>
+                    <div class="product-info">
+                        <h3>Pos operatorio</h3>
+                        <p>Acompañamiento especializado para tu recuperación tras una cirugía, con técnicas que reducen dolor, inflamación y aceleran la cicatrización.</p>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="img/fisioterapia.jpg" alt="Terapias alternativas">
+                    </div>
+                    <div class="product-info">
+                        <h3>Terapias alternativas</h3>
+                        <p>Tratamientos complementarios que equilibran cuerpo y mente de manera natural, promoviendo salud integral y bienestar emocional.</p>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="img/fisioterapia.jpg" alt="Quiropraxia">
+                    </div>
+                    <div class="product-info">
+                        <h3>Quiropraxia</h3>
+                        <p>Alineación de la columna y corrección postural para aliviar dolores musculares, mejorar movilidad y optimizar el funcionamiento del sistema nervioso.</p>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="img/fisioterapia.jpg" alt="Biomagnetismo medico">
+                    </div>
+                    <div class="product-info">
+                        <h3>Biomagnetismo medico</h3>
+                        <p>Uso terapéutico de imanes para restaurar el equilibrio del cuerpo, fortalecer el sistema inmune y favorecer procesos de sanación natural.</p>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="img/fisioterapia.jpg" alt="Iridologia">
+                    </div>
+                    <div class="product-info">
+                        <h3>Iridologia</h3>
+                        <p>Análisis de la estructura del iris como herramienta para identificar desequilibrios y apoyar un enfoque preventivo en la salud.</p>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="img/fisioterapia.jpg" alt="Homeopatía">
+                    </div>
+                    <div class="product-info">
+                        <h3>Homeopatía</h3>
+                        <p>Medicina natural basada en principios homeopáticos que estimulan las defensas del organismo y contribuyen al bienestar general.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="servicios" class="services">
+        <div class="container">
+            <h2 class="section-title">Experiencias Únicas</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">🪡</div>
+                    <h3>Acupuntura</h3>
+                    <p>Terapia milenaria que utiliza agujas finas para equilibrar la energía del cuerpo, aliviar dolores y promover bienestar integral.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🧠</div>
+                    <h3>Terapia neural</h3>
+                    <p>Tratamiento regenerativo que utiliza tu propio plasma rico en plaquetas para estimular la recuperación celular y mejorar la salud de la piel.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">💉</div>
+                    <h3>Plasma</h3>
+                    <p>Aplicación de microinyecciones que ayudan a regular el sistema nervioso, reduciendo dolor crónico, inflamación y estrés.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🦴</div>
+                    <h3>Quiropraxia</h3>
+                    <p>Corrección de la columna y ajustes manuales que alivian molestias musculares, mejoran la postura y fortalecen la movilidad.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🌿</div>
+                    <h3>Moxibustión</h3>
+                    <p>Técnica de la medicina tradicional china que aplica calor con hierbas sobre puntos específicos del cuerpo para estimular la circulación y la energía vital.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Location Section -->
+    <section id="ubicacion" class="location">
+        <div class="container">
+            <h2 class="section-title">Nuestro Espacio</h2>
+            <div class="map-container">
+                <h3 style="color: #6b46c1; margin-bottom: 2rem;">Te Esperamos</h3>
+                <p style="margin-bottom: 2rem; color: #666;">Un lugar diseñado para inspirar y crear, donde cada visita se convierte en una experiencia memorable.</p>
+                
+                <div class="location-info">
+                    <div class="location-item">
+                        <strong style="color: #f10505;">📍 Ubicación</strong>
+                        <p style="margin-top: 0.5rem;">CR 2B 48-10 las Quintas</p>
+                    </div>
+                    <div class="location-item">
+                        <strong style="color: #7506be;">🕒 Horarios</strong>
+                        <p style="margin-top: 0.5rem;">Lunes a Viernes: 9:00 AM - 6:00 PM<br>Sábados: 10:00 AM - 4:00 PM</p>
+                    </div>
+                    <div class="location-item">
+                        <strong style="color: #2563eb;">📱 Contacto Directo</strong>
+                        <p style="margin-top: 0.5rem;">WhatsApp: 320 352 8522</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonios" class="testimonials">
+        <div class="container">
+            <h2 class="section-title">Historias de Transformación</h2>
+            <div class="testimonials-container">
+                <div class="testimonials-grid">
+                    <div class="testimonial-card">
+                        <div class="testimonial-rating">⭐⭐⭐⭐⭐</div>
+                        <p class="testimonial-text">Andrea tiene un don especial para entender exactamente lo que necesitas, incluso antes de que tú mismo lo sepas. Su enfoque natural y elegante transformó completamente mi perspectiva.</p>
+                        <p class="testimonial-author">— María González</p>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-rating">⭐⭐⭐⭐⭐</div>
+                        <p class="testimonial-text">La experiencia con AB fue excepcional de principio a fin. Cada detalle fue pensado con cuidado y el resultado superó todas mis expectativas. Definitivamente único.</p>
+                        <p class="testimonial-author">— Carlos Mendoza</p>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-rating">⭐⭐⭐⭐⭐</div>
+                        <p class="testimonial-text">No es solo un servicio, es una experiencia transformadora. Andrea combina profesionalismo con una calidez humana que hace toda la diferencia. Altamente recomendado.</p>
+                        <p class="testimonial-author">— Sofía Torres</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contacto" class="contact">
+        <div class="container">
+            <h2 class="section-title">Comencemos Juntos</h2>
+            <div class="contact-content">
+                <div class="contact-form">
+                    <h3 style="color: #7506be; margin-bottom: 2rem;">Cuéntanos tu Historia</h3>
+                    <form>
+                        <div class="form-group">
+                            <label for="nombre">¿Cómo te llamas?</label>
+                            <input type="text" id="nombre" name="nombre" placeholder="Tu nombre completo" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">¿Cómo podemos contactarte?</label>
+                            <input type="email" id="email" name="email" placeholder="tu@email.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="mensaje">¿En que te podemos ayudar?</label>
+                            <textarea id="mensaje" name="mensaje" rows="5" placeholder="Compártenos tu consulta o cualquier pregunta que tengas..." required></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">Comenzar Esta Aventura ✨</button>
+                    </form>
+                </div>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">✉️</div>
+                        <div>
+                            <strong>Conversemos por Email</strong>
+                            <p style="margin-top: 0.5rem;">andrea.bautista222@gmail.com</p>
+                            <small style="color: #666;">Respuesta garantizada en 24 horas</small>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">💬</div>
+                        <div>
+                            <strong>WhatsApp Directo</strong>
+                            <p style="margin-top: 0.5rem;">320 352 8522</p>
+                            <small style="color: #666;">Disponible todos los días</small>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">📅</div>
+                        <div>
+                            <strong>Agenda tu Cita</strong>
+                            <p style="margin-top: 0.5rem;">Consultas personalizadas</p>
+                            <small style="color: #666;">Presencial o virtual, tú decides</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="social-links">
+                    <a href="#" target="_blank" title="Instagram">📸</a>
+                    <a href="#" target="_blank" title="Facebook">📘</a>
+                    <a href="#" target="_blank" title="TikTok">🎵</a>
+                </div>
+                <p style="font-size: 1.1rem; margin-bottom: 1rem;">&copy; 2025 AB - Andrea Bautista</p>
+                <p style="opacity: 0.8; margin-bottom: 1rem;">Donde la elegancia encuentra su forma natural</p>
+                <p style="opacity: 0.6; font-size: 0.9rem;">Todos los derechos reservados · Creado con pasión y dedicación</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Floating Button -->
+    <div class="whatsapp-float">
+        <a href="https://wa.me/573203528522" target="_blank" title="Chatea con nosotros">💬</a>
+    </div>
+
+    <script>
+        // Mobile menu toggle
+        document.querySelector('.menu-toggle').addEventListener('click', function() {
+            document.querySelector('.nav-links').classList.toggle('active');
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    // Close mobile menu if open
+                    document.querySelector('.nav-links').classList.remove('active');
+                }
+            });
+        });
+
+        // Contact form submission with enhanced WhatsApp integration
+        document.querySelector('.contact-form form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const nombre = document.getElementById('nombre').value;
+            const email = document.getElementById('email').value;
+            const mensaje = document.getElementById('mensaje').value;
+            
+            // Create a more personalized WhatsApp message
+            const whatsappMessage = `¡Hola Andrea! 🌸
+
+Soy *${nombre}* y me encantaría comenzar un proyecto contigo.
+
+📧 Mi email: ${email}
+
+💭 Mi visión:
+${mensaje}
+
+Espero que podamos conversar pronto sobre esta idea. ¡Gracias!`;
+            
+            const whatsappUrl = `https://wa.me/573203528522?text=${encodeURIComponent(whatsappMessage)}`;
+            
+            // Open WhatsApp with the message
+            window.open(whatsappUrl, '_blank');
+            
+            // Reset form with a nice animation
+            this.reset();
+            
+            // Show success message
+            const submitBtn = document.querySelector('.submit-btn');
+            const originalText = submitBtn.textContent;
+            submitBtn.textContent = '¡Mensaje Enviado! ✅';
+            submitBtn.style.background = 'linear-gradient(135deg, #25d366, #128c7e)';
+            
+            setTimeout(() => {
+                submitBtn.textContent = originalText;
+                submitBtn.style.background = 'linear-gradient(135deg, #ff0040, #6b46c1)';
+            }, 3000);
+        });
+
+        // Enhanced scroll effects for header
+        let lastScroll = 0;
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            const currentScroll = window.pageYOffset;
+            
+            if (currentScroll > 100) {
+                header.style.background = 'rgba(250, 248, 245, 0.98)';
+                header.style.boxShadow = '0 2px 20px rgba(107, 70, 193, 0.1)';
+            } else {
+                header.style.background = 'rgba(250, 248, 245, 0.95)';
+                header.style.boxShadow = 'none';
+            }
+            
+            // Hide header on scroll down, show on scroll up
+            if (currentScroll > lastScroll && currentScroll > 500) {
+                header.style.transform = 'translateY(-100%)';
+            } else {
+                header.style.transform = 'translateY(0)';
+            }
+            
+            lastScroll = currentScroll;
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all cards and sections for scroll animations
+        document.querySelectorAll('.product-card, .service-card, .testimonial-card, .about-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            card.style.transition = 'all 0.6s ease';
+            observer.observe(card);
+        });
+
+        // Add dynamic color changes to floating shapes based on scroll position
+        window.addEventListener('scroll', function() {
+            const scrollPercent = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+            const shapes = document.querySelectorAll('.shape');
+            
+            shapes.forEach((shape, index) => {
+                const hue = (scrollPercent + (index * 120)) % 360;
+                shape.style.filter = `hue-rotate(${hue}deg)`;
+            });
+        });
+
+        // Add particle effect on hover for hero visual elements
+        document.querySelectorAll('.visual-element').forEach(element => {
+            element.addEventListener('mouseenter', function() {
+                this.style.transform = 'scale(1.05) rotate(5deg)';
+                this.style.filter = 'blur(0px) brightness(1.1)';
+            });
+            
+            element.addEventListener('mouseleave', function() {
+                this.style.transform = 'scale(1) rotate(0deg)';
+                this.style.filter = 'blur(0px) brightness(1)';
+            });
+        });
+
+        // Dynamic typing effect for hero title (subtle)
+        const heroTitle = document.querySelector('.hero-text h1');
+        const originalText = heroTitle.innerHTML;
+        
+        // Add subtle glow effect on scroll to hero section
+        window.addEventListener('scroll', function() {
+            const heroSection = document.querySelector('.hero');
+            const rect = heroSection.getBoundingClientRect();
+            const isVisible = rect.bottom >= 0 && rect.top <= window.innerHeight;
+            
+            if (isVisible) {
+                const scrollPercent = Math.max(0, Math.min(1, (window.innerHeight - rect.top) / window.innerHeight));
+                heroTitle.style.textShadow = `0 0 ${scrollPercent * 20}px rgba(107, 70, 193, 0.3)`;
+            }
+        });
+    </script>
+</body>
+</html>
